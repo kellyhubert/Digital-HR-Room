@@ -1,0 +1,11 @@
+name,email,phone,location,skills,experience,availability,linkedin,github,summary
+John Kamau,john.kamau@email.com,+254700000001,Nairobi,"React,TypeScript,Node.js,PostgreSQL",5,immediate,linkedin.com/in/johnkamau,github.com/johnkamau,Senior full stack developer with 5 years building scalable web applications
+Amina Hassan,amina.h@email.com,+255700000002,Dar es Salaam,"Python,Django,Machine Learning,SQL",4,2-weeks,linkedin.com/in/aminah,github.com/aminah,Backend engineer passionate about data-driven applications
+Peter Osei,peter.osei@email.com,+233700000003,Accra,"Java,Spring Boot,Microservices,Docker",7,1-month,linkedin.com/in/peterosei,,Senior Java engineer with microservices and cloud architecture expertise
+Fatima Diallo,fatima.d@email.com,+221700000004,Dakar,"React,Vue.js,JavaScript,CSS,Figma",3,immediate,linkedin.com/in/fatimadiallo,github.com/fatimadiallo,Creative frontend developer focused on pixel-perfect UI
+Emmanuel Eze,emmanuel.e@email.com,+234700000005,Lagos,"Node.js,Express,MongoDB,Redis",6,2-weeks,linkedin.com/in/emmanueleze,github.com/emmanueleze,Backend engineer specializing in high-performance APIs and real-time systems
+Nadia Bouali,nadia.b@email.com,+212700000006,Casablanca,"React Native,TypeScript,Firebase,iOS",4,immediate,,github.com/nadiab,Mobile developer with cross-platform expertise in React Native and Swift
+Kofi Mensah,kofi.m@email.com,+233700000007,Accra,"DevOps,AWS,Kubernetes,Terraform,CI/CD",8,3-months,linkedin.com/in/kofimensah,,Senior DevOps engineer with AWS certifications and large-scale infrastructure experience
+Layla Ahmed,layla.a@email.com,+201700000008,Cairo,"Data Science,Python,TensorFlow,SQL,Tableau",5,1-month,linkedin.com/in/laylaa,github.com/laylaa,Data scientist building ML pipelines for financial forecasting
+Samuel Nkosi,samuel.n@email.com,+27700000009,Johannesburg,"Angular,TypeScript,Java,Spring",4,2-weeks,linkedin.com/in/samueln,github.com/samueln,Full stack developer with strong Angular and Java Spring Boot experience
+Chloe Abayomi,chloe.a@email.com,+234700000010,Lagos,"UI/UX Design,Figma,Adobe XD,CSS,HTML",3,immediate,linkedin.com/in/chloeabayomi,,UX designer with a strong engineering background able to implement her own designs
