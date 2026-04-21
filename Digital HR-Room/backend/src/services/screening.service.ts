@@ -162,7 +162,7 @@ export async function screenUmurava(
 
       await Job.findByIdAndUpdate(jobId, { status: 'completed' });
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Unknown error';
+      const message = extractErrorMessage(err);
       await ScreeningResult.findByIdAndUpdate(screeningResult._id, {
         status: 'failed',
         errorMessage: message,
@@ -172,6 +172,12 @@ export async function screenUmurava(
   })();
 
   return screeningResult._id.toString();
+}
+
+function extractErrorMessage(err: unknown): string {
+  const axiosErr = err as { response?: { data?: { detail?: string } } };
+  if (axiosErr?.response?.data?.detail) return axiosErr.response.data.detail;
+  return err instanceof Error ? err.message : 'Unknown error';
 }
 
 export async function screenExternal(
@@ -257,7 +263,7 @@ export async function screenExternal(
 
       await Job.findByIdAndUpdate(jobId, { status: 'completed' });
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Unknown error';
+      const message = extractErrorMessage(err);
       await ScreeningResult.findByIdAndUpdate(screeningResult._id, {
         status: 'failed',
         errorMessage: message,
