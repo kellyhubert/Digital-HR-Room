@@ -34,4 +34,9 @@ async def screen_candidates(req: ScreeningRequest):
     except ValueError as e:
         raise HTTPException(status_code=422, detail=str(e))
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"AI screening failed: {str(e)}")
+        msg = str(e)
+        if "429" in msg or "RESOURCE_EXHAUSTED" in msg:
+            raise HTTPException(status_code=429, detail=f"Gemini quota exceeded: {msg}")
+        if "404" in msg or "NOT_FOUND" in msg:
+            raise HTTPException(status_code=502, detail=f"Gemini model not found: {msg}")
+        raise HTTPException(status_code=500, detail=f"AI screening failed: {msg}")
