@@ -30,7 +30,7 @@ async def health():
     return {
         "status": "ok",
         "service": "Digital HR-Room AI Service",
-        "gemini_model": os.environ.get("GEMINI_MODEL", "gemini-1.5-pro"),
+        "gemini_model": os.environ.get("GEMINI_MODEL", "gemini-2.0-flash"),
         "api_key_set": bool(os.environ.get("GEMINI_API_KEY")),
     }
 
