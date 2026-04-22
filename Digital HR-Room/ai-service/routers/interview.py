@@ -19,7 +19,12 @@ async def generate_questions(req: QuestionGenRequest):
     except ValueError as e:
         raise HTTPException(status_code=422, detail=str(e))
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Question generation failed: {str(e)}")
+        msg = str(e)
+        if "429" in msg or "RESOURCE_EXHAUSTED" in msg:
+            raise HTTPException(status_code=429, detail=f"Gemini quota exceeded: {msg}")
+        if "404" in msg or "NOT_FOUND" in msg:
+            raise HTTPException(status_code=502, detail=f"Gemini model not found: {msg}")
+        raise HTTPException(status_code=500, detail=f"Question generation failed: {msg}")
 
 
 @router.post("/evaluate", response_model=EvaluationResponse)
@@ -33,4 +38,9 @@ async def evaluate_answers(req: EvaluationRequest):
     except ValueError as e:
         raise HTTPException(status_code=422, detail=str(e))
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Answer evaluation failed: {str(e)}")
+        msg = str(e)
+        if "429" in msg or "RESOURCE_EXHAUSTED" in msg:
+            raise HTTPException(status_code=429, detail=f"Gemini quota exceeded: {msg}")
+        if "404" in msg or "NOT_FOUND" in msg:
+            raise HTTPException(status_code=502, detail=f"Gemini model not found: {msg}")
+        raise HTTPException(status_code=500, detail=f"Answer evaluation failed: {msg}")
